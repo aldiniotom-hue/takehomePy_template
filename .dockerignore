@@ -1,0 +1,32 @@
+.git
+
+tests/
+
+.env
+
+*.sqlite3
+*.db
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyd
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build and packaging artifacts
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Environment
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
