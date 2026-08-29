@@ -19,13 +19,10 @@ async def test_post_health_test(client: AsyncClient):
 
 @pytest.mark.anyio
 async def test_database_is_empty(client: AsyncClient):
-    response = await client.post(
+    response = await client.get(
         "/api/healthtest/getHealthTest",
-        json={
-            "datetime": datetime.datetime.now().isoformat(),
-            "message": "",
-        },
     )
 
+    assert response.status_code == 404
     data = response.json()
-    assert len(data["message"]) == 0
+    assert data["detail"] == "No test ran yet."
