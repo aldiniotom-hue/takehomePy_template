@@ -8,5 +8,6 @@ class Settings(BaseSettings):
     )
     database_url: str
 
+    coveralls_repo_token: str
 
 settings = Settings()
