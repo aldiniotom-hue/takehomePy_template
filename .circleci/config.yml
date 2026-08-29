@@ -1,4 +1,7 @@
 version: 2.1
+orbs:
+  python: circleci/python@3.14
+  coveralls: coveralls/coveralls@2.2.5
 
 jobs:
   test:
