@@ -28,4 +28,4 @@ async def test_database_is_empty(client: AsyncClient):
     )
 
     data = response.json()
-    assert data.lenght() == 0
+    assert data.length() == 0
