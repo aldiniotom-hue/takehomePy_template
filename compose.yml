@@ -17,6 +17,7 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql+psycopg://postgres:mysecretpassword@db:5432/takehome_db
+      SECRET_KEY: 7969048f66cda3dd5030936b93233fba93cb0a066dcf515cd4dd1d14718c9459
     depends_on:
       db:
         condition: service_healthy

@@ -1,0 +1,16 @@
+{
+    "include": [
+        "**/*.py"
+    ],
+    "exclude": [
+        "**/.venv/**",
+        "**/alembic/**",
+        "**/__pycache__/**"
+    ],
+    "typeCheckingMode": "basic",
+    "reportMissingImports": "error",
+    "reportUndefinedVariable": "error",
+    "reportUnusedImport": "warning",
+    "reportGeneralTypeIssues": "warning",
+    "pythonVersion": "3.14"
+}
