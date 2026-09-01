@@ -9,11 +9,13 @@ class APIHealthBase(BaseModel):
 
 
 class BaseUser(BaseModel):
+    id: int
     email: EmailStr = Field(max_length=120)
 
 
 class UserCreate(BaseUser):
     password: str = Field(min_length=8)
+
 
 class Token(BaseModel):
     access_token: str
