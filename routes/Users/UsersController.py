@@ -14,12 +14,12 @@ from routes.auth.auth import (
     verify_password,
 )
 from routes.models.usersModel import UserModel
-from routes.schemas.schemas import BaseUser, Token, UserCreate
+from routes.schemas.schemas import BaseUser, Token, UserCreate, UserPublic
 
 router = APIRouter()
 
 
-@router.post("/create", response_model=BaseUser, status_code=status.HTTP_201_CREATED)
+@router.post("/create", response_model=UserPublic, status_code=status.HTTP_201_CREATED)
 async def create_new_user(
     incomming_user: UserCreate, db: Annotated[AsyncSession, Depends(get_db)]
 ):
