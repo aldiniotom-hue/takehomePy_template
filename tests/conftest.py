@@ -84,7 +84,7 @@ async def create_test_user(
         password: str = 'sarasa12',
 ) -> dict:
     response = await client.post(
-        "/api/users",
+        "/api/users/create",
         json={
             "email": email,
             "password": password,
