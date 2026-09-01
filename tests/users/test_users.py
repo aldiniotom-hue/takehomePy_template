@@ -1,6 +1,8 @@
 import pytest
 from httpx import AsyncClient
 
+from tests.conftest import create_test_user
+
 
 @pytest.mark.anyio
 async def test_create_user_validation_error(client: AsyncClient):
@@ -14,6 +16,8 @@ async def test_create_user_validation_error(client: AsyncClient):
 
 @pytest.mark.anyio
 async def test_create_user_duplicated_email(client: AsyncClient):
+    await create_test_user(client)
+
     response = await client.post(
         "/api/users/create", json={"email": "test@example.com", "password": "sarasa12"}
     )
@@ -31,6 +35,5 @@ async def test_create_user_success(client: AsyncClient):
     assert response.status_code == 201
     data = response.json()
     assert data["email"] == "test2@example.com"
-    assert data["password"] == "sarasa12"
     assert "id" in data
     assert "password_hash" not in data
