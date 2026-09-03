@@ -1,7 +1,13 @@
 import os
+import sys
 from collections.abc import AsyncGenerator
+from pathlib import Path
 
 from httpx import ASGITransport, AsyncClient
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from database import Base, get_db
 
@@ -78,10 +84,11 @@ async def client(db_session: AsyncSession) -> AsyncGenerator[AsyncClient]:
 
     app.dependency_overrides.clear()
 
+
 async def create_test_user(
-        client: AsyncClient,
-        email: str = 'test@example.com',
-        password: str = 'sarasa12',
+    client: AsyncClient,
+    email: str = "test@example.com",
+    password: str = "sarasa12",
 ) -> dict:
     response = await client.post(
         "/api/users/create",
@@ -96,21 +103,21 @@ async def create_test_user(
 
 
 async def login_user(
-        client: AsyncClient,
-        email: str = 'test@example.com',
-        password: str = 'sarasa12',
+    client: AsyncClient,
+    email: str = "test@example.com",
+    password: str = "sarasa12",
 ) -> str:
     response = await client.post(
         "/api/users/token",
-        data = {
+        data={
             "username": email,
             "password": password,
-        }
+        },
     )
 
     assert response.status_code == 201, f"Failed to create user: {response.text}"
     return response.json()["access_token"]
 
 
-def auth_header(token:str) -> dict[str, str]:
+def auth_header(token: str) -> dict[str, str]:
     return {"Authorization": f"Bearer {token}"}

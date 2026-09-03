@@ -16,4 +16,7 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["routes","alembic"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["routes*", "alembic*"]
