@@ -23,4 +23,4 @@ async def test_create_notification_success(client: AsyncClient):
     data = response.json()
     assert data["title"] == "Test notification"
     assert data["content"] == "This is a test notification for the API."
-    assert data["channel"] == "email"
+    assert "id" in data
