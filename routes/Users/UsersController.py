@@ -8,12 +8,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from config import settings
 from database import get_db
+from models.usersModel import UserModel
 from routes.auth.auth import (
     create_access_token,
     hash_password,
     verify_password,
 )
-from models.usersModel import UserModel
 from schemas.schemas import Token, UserCreate, UserPublic
 
 router = APIRouter()
