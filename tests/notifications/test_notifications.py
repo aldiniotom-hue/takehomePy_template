@@ -37,3 +37,4 @@ async def test_create_fail_unauthorized(client: AsyncClient):
         )
 
     assert response.status_code == 401
+
