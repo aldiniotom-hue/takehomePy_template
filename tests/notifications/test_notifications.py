@@ -24,3 +24,16 @@ async def test_create_notification_success(client: AsyncClient):
     assert data["title"] == "Test notification"
     assert data["content"] == "This is a test notification for the API."
     assert "id" in data
+
+@pytest.mark.anyio
+async def test_create_fail_unauthorized(client: AsyncClient):
+    response = await client.post(
+            "/api/notifications/create",
+            json={
+                "title": "Test notification",
+                "content": "This is a test notification for the API.",
+                "channel": "email",
+            },
+        )
+
+    assert response.status_code == 401
