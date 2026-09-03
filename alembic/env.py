@@ -5,8 +5,9 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-import routes.models.apiHealthModel
-import routes.models.usersModel  # noqa: F401
+import models.apiHealthModel
+import models.notificationModel
+import models.usersModel  # noqa: F401
 from alembic import context
 from config import settings
 from database import Base

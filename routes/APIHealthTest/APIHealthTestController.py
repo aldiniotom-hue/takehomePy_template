@@ -5,8 +5,8 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database import get_db
-from routes.models.apiHealthModel import APIHealthTestModel
-from routes.schemas.schemas import APIHealthBase
+from models.apiHealthModel import APIHealthTestModel
+from schemas.schemas import APIHealthBase
 
 router = APIRouter()
 

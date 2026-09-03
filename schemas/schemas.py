@@ -22,3 +22,14 @@ class UserPublic(BaseUser):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+
+class BaseNotification(BaseModel):
+    title: str
+    content: str
+
+class NotificationCreate(BaseNotification):
+    channel: str
+
+class NotificationPublic(BaseNotification):
+    id: int

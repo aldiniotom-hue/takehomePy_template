@@ -13,8 +13,8 @@ from routes.auth.auth import (
     hash_password,
     verify_password,
 )
-from routes.models.usersModel import UserModel
-from routes.schemas.schemas import BaseUser, Token, UserCreate, UserPublic
+from models.usersModel import UserModel
+from schemas.schemas import Token, UserCreate, UserPublic
 
 router = APIRouter()
 
