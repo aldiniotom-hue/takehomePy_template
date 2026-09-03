@@ -8,7 +8,7 @@ from database import get_db
 from models.notificationModel import NotificationModel
 from models.usersModel import UserModel
 from routes.auth.auth import CurrentUser
-from schemas.schemas import NotificationCreate, NotificationPublic
+from schemas.schemas import NotificationCreate, NotificationPublic, NotificationUpdate
 
 router = APIRouter()
 
@@ -51,7 +51,7 @@ async def create_notification(
 @router.patch("/patch/{notification_id}", response_model=NotificationPublic)
 async def notification_partial_update(
     notification_id: int,
-    notification: NotificationCreate,
+    notification: NotificationUpdate,
     current_user: CurrentUser,
     db: Annotated[AsyncSession, Depends(get_db)],
 ):

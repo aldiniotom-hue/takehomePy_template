@@ -15,9 +15,10 @@ class BaseUser(BaseModel):
 class UserCreate(BaseUser):
     password: str = Field(min_length=8)
 
+
 class UserPublic(BaseUser):
     id: int
-    
+
 
 class Token(BaseModel):
     access_token: str
@@ -28,8 +29,15 @@ class BaseNotification(BaseModel):
     title: str
     content: str
 
+
 class NotificationCreate(BaseNotification):
     channel: str
 
+
 class NotificationPublic(BaseNotification):
     id: int
+
+
+class NotificationUpdate(BaseModel):
+    title: str | None = Field(default=None, min_length=1, max_length=200)
+    content: str | None = Field(default=None, min_length=1)
