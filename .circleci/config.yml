@@ -19,7 +19,7 @@ jobs:
           name: Install dependencies
           command: |
             python -m pip install --upgrade pip
-            python -m pip install -e .
+            python -m pip install -e . coverage pytest-cov coveralls
             export PYTHONPATH=$PWD
 
       - run:
