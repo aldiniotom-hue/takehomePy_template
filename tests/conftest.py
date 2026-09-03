@@ -115,7 +115,7 @@ async def login_user(
         },
     )
 
-    assert response.status_code == 201, f"Failed to create user: {response.text}"
+    assert response.status_code == 200, f"Failed to create user: {response.text}"
     return response.json()["access_token"]
 
 

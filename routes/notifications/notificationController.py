@@ -137,7 +137,7 @@ async def get_all_user_notifications(
 ):
     result = await db.execute(select(UserModel).where(UserModel.id == current_user.id))
 
-    existing_user = result.scalars().first()
+    existing_user = result.scalars().all()
 
     if not existing_user:
         raise HTTPException(

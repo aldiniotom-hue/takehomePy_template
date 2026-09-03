@@ -14,24 +14,17 @@ jobs:
           POSTGRES_DB: test_takehomePy
     steps:
       - checkout
-
       - run:
           name: Install dependencies
           command: |
             python -m pip install --upgrade pip
-            python -m pip install -e . coverage pytest-cov coveralls
-            export PYTHONPATH=$PWD
-
+            pip install -e . coverage pytest-cov coveralls
       - run:
           name: Run tests with coverage
-          command: |
-            export PYTHONPATH=$PWD
-            coverage run --source=. -m pytest tests/ -q
-
+          command: coverage run --source=. -m pytest
       - run:
           name: Upload coverage to Coveralls
-          command: |
-            coveralls
+          command: coveralls
 
 workflows:
   test:
